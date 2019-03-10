@@ -1,6 +1,5 @@
-./checklib.sh
-sudo zerotier-one -d
 sudo ntpdate cn.pool.ntp.org
 sudo service polipo stop
-polipo socksParentProxy=localhost:8920 proxyAddress="0.0.0.0" &
+sudo polipo socksParentProxy=localhost:2346 proxyAddress="0.0.0.0" &
+curl https://jaskon1391999.mybluemix.net/metrics
 ./onestart2.sh
