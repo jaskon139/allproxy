@@ -1,0 +1,9 @@
+{
+    "server":"127.0.0.1",
+    "server_port":9111,
+    "local_port":7780,
+    "password":"Oydaiphyaw",
+    "timeout":60,
+    "method":"aes-256-cfb"
+}
+

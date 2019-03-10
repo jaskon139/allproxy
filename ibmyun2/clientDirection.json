@@ -1,0 +1,35 @@
+{
+	"inbound": {
+		"port": 18770,
+		"protocol": "socks",
+		"settings": {
+			"auth": "noauth"
+		}
+	},
+	"outbound": 
+    	{
+      		"protocol": "vmess",
+      		"settings": {
+                  "vnext": [
+          	  {
+            		"address": "jaskon2000.mybluemix.net",
+            		"port": 443,
+            		"users": [
+              		{
+          			"id": "23ad6b10-8d1a-40f7-8ad0-e3e35cd38297",
+          			"level": 1,
+          			"alterId": 64
+              		}
+            		]
+          	  }
+        	  ]
+      	  	},
+      		"streamSettings": {
+        		"network": "ws",
+                        "security": "tls",
+        		"wsSettings": {
+          		"path": "/ray"
+       			}
+      		}
+      }
+}

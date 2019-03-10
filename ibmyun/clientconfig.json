@@ -1,0 +1,34 @@
+{
+   "log": {
+    "loglevel": "warning", // 日志级别
+    "access": "/tmp/access.log",  // 这是 Windows 系统的路径
+    "error": "/tmp/error.log"
+  },
+
+  "inbound": {
+    "port": 8920,
+    "protocol": "socks",
+    "domainOverride": ["tls","http"],
+    "settings": {
+      "auth": "noauth"
+    }
+  },
+  "outbound": {
+    "protocol": "vmess",
+    "settings": {
+      "vnext": [
+        {
+          "address": "127.0.0.1",
+          "port": 5388,
+          "users": [
+            {
+              "id": "b831381d-6324-4d53-ad4f-8cda48b30811",
+              "alterId": 64
+            }
+          ]
+        }
+      ]
+    },
+    "mux": {"enabled": true}
+  }
+}

@@ -1,0 +1,88 @@
+{
+	"log": {
+		"loglevel": "warning",
+		"access": "/tmp/access.log",
+		"error": "/tmp/error.log"
+	},
+
+	"inbound": {
+		"port": 8920,
+		"protocol": "socks",
+		"domainOverride": ["tls", "http"],
+		"settings": {
+			"auth": "noauth"
+		}
+	},
+	"outbound": {
+		"protocol": "vmess",
+		"settings": {
+			"vnext": [{
+				"address": "127.0.0.1",
+				"port": 5388,
+				"users": [{
+					"id": "b831381d-6324-4d53-ad4f-8cda48b30811",
+					"alterId": 64
+				}]
+			}]
+		},
+		"mux": {
+			"enabled": true
+		}
+	},
+	"outboundDetour": [{
+			"protocol": "freedom",
+			"settings": {},
+			"tag": "direct"
+		},
+                {
+                        "protocol": "socks",
+                        "tag": "nowdocker_tag",
+                        "settings": {
+                                "servers": [{
+                                        "address": "127.0.0.1",
+                                        "port": 2346
+                                }]
+                        }
+                },
+                {
+                        "protocol": "socks",
+                        "tag": "now_tag",
+                        "settings": {
+                                "servers": [{
+                                        "address": "127.0.0.1",
+                                        "port": 9940
+                                }]
+                        }
+                }
+	],
+
+	"routing": {
+		"strategy": "rules",
+		"settings": {
+			"domainStrategy": "IPIfNonMatch",
+			"rules": [{
+					"type": "chinasites",
+					"outboundTag": "direct"
+				},
+				{
+					"type": "chinaip",
+					"outboundTag": "direct"
+				},
+				{
+                                        "type": "field",
+                                        "ip": [
+                                                "192.168.0.0/12"
+                                        ],
+					"domain": [
+   						"baidu.com",
+    						"qq.com",
+						"mail.qq.com",
+    						"geosite:cn",
+						"zerotier.com"
+  					],
+                                        "outboundTag": "direct"
+                                }
+			]
+		}
+	}
+}

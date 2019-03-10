@@ -1,0 +1,28 @@
+{
+	"inbound": {
+		"port": 2346,
+		"protocol": "socks",
+		"settings": {
+			"auth": "noauth"
+		}
+	},
+	"outbound": {
+		"protocol": "vmess",
+		"settings": {
+			"vnext": [{
+				"address": "127.0.0.1",
+				"port": 7878,
+				"users": [{
+					"id": "c196ecf7-3737-41ae-91ea-b0b98e1e122c",
+					"alterId": 64
+				}]
+			}]
+		},
+		"streamSettings": {
+			"network": "ws",
+			"wsSettings": {
+				"path": "/ray"
+			}
+		}
+	}
+}
