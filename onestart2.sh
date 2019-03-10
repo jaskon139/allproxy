@@ -14,25 +14,25 @@ tmux start-server
 tmux new-session -d -s $session #-n vim #"vim -S ~/.vim/sessions/kittybusiness"
 # Select pane 1, set dir to api, run vim
 tmux selectp -t 1
-tmux send-keys "ping 10.241.183.229" C-m
+tmux send-keys "ping 10.241.157.185" C-m
 # Split pane 1 horizontal by 65%, start redis-server
 tmux splitw -h -p 35
-tmux send-keys "/home/jaskon/startbs.sh" C-m
+tmux send-keys "/home/jaskon139/startbs.sh" C-m
 # Select pane 2
 tmux selectp -t 2
 # Split pane 2 vertiacally by 25%
 tmux splitw -v -p 85
 # select pane 3, set to api root
 tmux selectp -t 3
-tmux send-keys "/home/jaskon/xxnet.sh" C-m
+tmux send-keys "/home/jaskon139/xxnet.sh" C-m
 
 tmux selectp -t 3
 tmux splitw -v -p 85 
-tmux send-keys "cd /home/jaskon/kcptun2/6now/ && ./startbs9940_2346.sh" C-m
+tmux send-keys "cd /home/jaskon139/kcptun2/forphone/ && ./startbs9940_2346.sh" C-m
 
 tmux selectp -t 4
 tmux splitw -v -p 85
-tmux send-keys "cd /home/jaskon/kcptun2/googledocker && ./startbs4480.sh" C-m
+tmux send-keys "cd /home/jaskon139/kcptun2/ibmyun2 && ./startbs.sh" C-m
 
 # Select pane 0
 tmux selectp -t 0
